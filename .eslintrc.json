@@ -1,0 +1,111 @@
+{
+  "env": {
+    "browser": false,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": [
+    "unused-imports",
+    "prettier",
+    "tailwindcss"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "tailwindcss/no-custom-classname": "off", // Disabled otherwise nightmare to allow each custom tailwind classes
+    "spaced-comment": "off", // Create a mess for a temporary comment
+    "no-console": "error",
+
+    // REACT
+    "react/require-default-props": "off", // Allow non-defined react props as undefined
+    "react/jsx-props-no-spreading": "off", // _app.tsx uses spread operator and also, react-hook-form
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": "warn",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
+    ],
+    "react-hooks/exhaustive-deps": "off", // Incorrectly report needed dependency with Next.js router
+
+    // NEXTJS
+    "@next/next/no-img-element": "off", // We're currently not using next/image because it isn't supported with SSG mode
+    "@next/next/link-passhref": "off", // Only needed when the child of Link wraps an <a> tag
+
+    // JSX-A11y
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/interactive-supports-focus": "warn",
+    "prettier/prettier": "error",
+    "no-unused-vars": "off",
+
+    // UNUSED IMPORT
+    "unused-imports/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "unused-imports/no-unused-imports": "error",
+
+    // TS
+    "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
+    "@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": false,
+        "argsIgnorePattern": "^_.*?$"
+      }
+    ],
+
+    // IMPORT
+    "import/prefer-default-export": "off", // Named export is easier to refactor automatically
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "type",
+          "builtin",
+          "object",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "~/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  }
+}

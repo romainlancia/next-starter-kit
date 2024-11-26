@@ -1,0 +1,42 @@
+{
+  "name": "next-starter-kit",
+  "version": "0.1.0",
+  "author": "Romain Lancia",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "npm run clean && next build",
+    "start": "next start",
+    "lint": "npm run eslint",
+    "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf .next .swc out"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "^14.2.18",
+    "next-seo": "^6.6.0",
+    "next-themes": "^0.4.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/parser": "^8.14.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "postcss": "^8.4.49",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "tailwind-variants": "^0.3.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.6.3"
+  }
+}
